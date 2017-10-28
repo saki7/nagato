@@ -1,4 +1,4 @@
-{
+module.exports = {
   "presets": [
     ["env", {
       "modules": false,
@@ -12,11 +12,6 @@
     "transform-function-bind",
     "transform-runtime",
     "transform-class-properties"
-  ],
-  "env": {
-    "production": {
-      "presets": []
-    }
-  }
+  ]
 }
 
