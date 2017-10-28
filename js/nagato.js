@@ -1,3 +1,2 @@
-import {Logger} from './nagato/logger'
-module.exports = {Logger}
+export {Logger} from './nagato/logger'
 
