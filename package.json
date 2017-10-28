@@ -1,6 +1,6 @@
 {
   "name": "nagato",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Yet another pretty console.log()",
   "main": "dist/js/nagato.js",
   "module": "js/nagato.js",
