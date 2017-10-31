@@ -24,7 +24,6 @@ module.exports = {
             },
             {
               loader: 'babel-loader',
-              options: require('./js/nagato/babel-options'),
             },
           ],
           exclude: /node_modules/,
