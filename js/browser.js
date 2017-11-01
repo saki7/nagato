@@ -23,6 +23,13 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   {
+    const log = nLog.makeContext(['Sample', 'NoBacktrace (lazy)'], Object.assign({}, A, {disableBacktrace: () => false}))
+    log.disableBacktrace(true)
+    log.error('backtrace suppressed for minified envs (lazy)')
+  }
+
+
+  {
     const log = nLog.makeContext(['Sample', 'ForceBacktrace'], Object.assign({}, A, {disableBacktrace: () => false}))
     log.error('backtrace force enabled')
   }

@@ -72,6 +72,10 @@ class Logger {
     return this.log_impl(Level.error, ...arguments)
   }
 
+  disableBacktrace(flag) {
+    this.opts.data.disableBacktrace = () => (flag)
+  }
+
   log_impl(level, arg1, ...args) {
     if (this.need_log(level)) {
       const master_output = level.intensity >= Level.error.intensity ? console.group : console.groupCollapsed
