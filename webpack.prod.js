@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const Merge = require('webpack-merge');
 
-module.exports = Merge.multiple(common, {
+module.exports = env => (Merge.multiple(common(env), {
   js: {
     plugins: [
       new CleanWebpackPlugin(
@@ -17,5 +17,5 @@ module.exports = Merge.multiple(common, {
       }),
     ],
   },
-});
+}))
 

@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Merge = require('webpack-merge');
 
-module.exports = Merge.multiple(common, {
+module.exports = env => (Merge.multiple(common(env), {
   js: {
     entry: {
       browser: './browser.js',
@@ -44,5 +44,5 @@ module.exports = Merge.multiple(common, {
       }),
     ],
   },
-});
+}))
 

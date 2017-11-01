@@ -5,8 +5,8 @@
   "main": "dist/js/nagato.js",
   "module": "js/nagato.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
-    "dev": "webpack-dev-server --config webpack.dev.js --host 0.0.0.0",
+    "build": "webpack --config webpack.prod.js -p --env production",
+    "dev": "webpack-dev-server --config webpack.dev.js --host 0.0.0.0 --env development",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "npm run build"
   },

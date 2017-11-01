@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-module.exports = {
+module.exports = env => ({
   js: {
     context: path.resolve(__dirname, 'js'),
     entry: {
@@ -32,5 +32,5 @@ module.exports = {
     plugins: [
     ],
   },
-};
+})
 
