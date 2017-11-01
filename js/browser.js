@@ -16,5 +16,15 @@ document.addEventListener('DOMContentLoaded', function() {
     log.warn('indicating \'warn\'; with additional arguments', A)
     log.error('indicating \'error\'; with additional arguments', A)
   }
+
+  {
+    const log = nLog.makeContext(['Sample', 'NoBacktrace'], Object.assign({}, A, {disableBacktrace: () => true}))
+    log.error('backtrace suppressed for minified envs')
+  }
+
+  {
+    const log = nLog.makeContext(['Sample', 'ForceBacktrace'], Object.assign({}, A, {disableBacktrace: () => false}))
+    log.error('backtrace force enabled')
+  }
 })
 

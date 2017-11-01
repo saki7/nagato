@@ -19,6 +19,7 @@ class Logger {
 
   static defaultLevel = Level.debug
   static defaultOptions = new Option({
+    disableBacktrace: () => process.env.NODE_ENV === 'production',
     ctx: {
       level: Logger.defaultLevel,
       style: new Style({
@@ -53,7 +54,7 @@ class Logger {
     if (!name || !name.length)  {
       throw new Error('name must be supplied')
     }
-    let l = new Logger(this.orig_ctx.concat(name), Object.assign(new Option(this.opts.data), opts))
+    let l = new Logger(this.orig_ctx.concat(name), new Option(Object.assign({}, this.opts.data, opts)))
     l.orig_ctx = Object.assign([], this.orig_ctx)
     return l
   }
@@ -106,9 +107,11 @@ class Logger {
         console.groupEnd()
       }
 
-      console.groupCollapsed('%cbacktrace', Logger.PartStyle.backtrace.join())
-      console.trace()
-      console.groupEnd()
+      if (!this.opts.data.disableBacktrace()) {
+        console.groupCollapsed('%cbacktrace', Logger.PartStyle.backtrace.join())
+        console.trace()
+        console.groupEnd()
+      }
 
       console.groupEnd()
 
