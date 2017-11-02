@@ -54,7 +54,17 @@ class Logger {
     if (!name || !name.length)  {
       throw new Error('name must be supplied')
     }
-    let l = new Logger(this.orig_ctx.concat(name), new Option(Object.assign({}, this.opts.data, opts)))
+    let l = new Logger(
+      this.orig_ctx.concat(name),
+      new Option(
+        Object.assign(
+          {},
+          this.opts.data,
+          (opts ? opts.data : {})
+        )
+      )
+    )
+
     l.orig_ctx = Object.assign([], this.orig_ctx)
     return l
   }
